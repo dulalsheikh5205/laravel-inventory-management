@@ -44,6 +44,8 @@ Route::controller(SupplierController::class)->group(function(){
     Route::get('/supplier/edit/{id}','SupplierEdit')->name('supplier.edit');
     Route::post('/supplier/update','SupplierUpdate')->name('supplier.update');
     Route::get('/supplier/delete/{id}','SupplierDelete')->name('supplier.delete');
+
+    Route::get('/supplier/status/{status}/{id}','status')->name('supplier.status');
     
 });
 

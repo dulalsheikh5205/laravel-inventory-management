@@ -81,5 +81,18 @@ class SupplierController extends Controller
         return redirect()->back()->with($notification);
     }// End Method
 
+    
+    
+    public function status(Request $request,$status,$id)
+    {
+        $model = Supplier::find($id);
+        $model->status = $status;
+        $model->save();
+        $request->session()->flash('message','supplier status update');
+        return redirect('/supplier/all');
+    }
+    
+    
+
  
 }

@@ -30,6 +30,7 @@
                                     <th>Mobile Number</th>
                                     <th>Email</th>
                                     <th>Address</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -42,6 +43,21 @@
                                     <td>{{$item->mobile_no}}</td>
                                     <td>{{$item->email}}</td>
                                     <td>{{$item->address}}</td>
+                                    <td>
+                                    @if($item->status == 1)
+                                    <a href="{{url('/supplier/status/0')}}/{{$item->id}}">
+                                        <button type="button" class="btn btn-primary">Active</button>
+                                    </a>
+                                    
+                                    @elseif($item->status == 0)
+                                    <a href="{{url('/supplier/status/1')}}/{{$item->id}}">
+                                        <button type="button" class="btn btn-warning">Deactive</button>
+                                    </a>
+                                    @endif
+                                    
+
+                              
+                                    </td>
                                     <td>
                                         <a href="{{ route('supplier.edit',$item->id)}}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
 
