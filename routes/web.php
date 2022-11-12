@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Pos\SupplierController;
+use App\Http\Controllers\Pos\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,6 +47,14 @@ Route::controller(SupplierController::class)->group(function(){
     Route::get('/supplier/delete/{id}','SupplierDelete')->name('supplier.delete');
 
     Route::get('/supplier/status/{status}/{id}','status')->name('supplier.status');
+    
+});
+
+
+// Customer All Route
+Route::controller(CustomerController::class)->group(function(){
+    Route::get('/customer/all','CustomerAll')->name('customer.all');
+    Route::get('/customer/add','CustomerAdd')->name('customer.add');
     
 });
 

@@ -4,12 +4,12 @@
     <head>
         
         <meta charset="utf-8" />
-        <title>Login | Admin {{asset('backend/')}}</title>
+        <title>Login | Admin </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
        <!-- App favicon -->
-       <link rel="shortcut icon" href="{{asset('backend/assets/images/favicon.ico')}}">
+       <link rel="shortcut icon" href="{{asset('backend/assets/images/logo-dulal.png')}}">
 
         <!-- Bootstrap Css -->
         <link href="{{asset('backend/assets/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -35,8 +35,8 @@
                         <div class="text-center mt-4">
                             <div class="mb-3">
                                 <a href="index.html" class="auth-logo">
-                                    <img src="{{asset('backend/assets/images/logo-dark.png')}}" height="30" class="logo-dark mx-auto" alt="">
-                                    <img src="{{asset('backend/assets/images/logo-light.png')}}" height="30" class="logo-light mx-auto" alt="">
+                                    <img src="{{asset('backend/assets/images/logo-dulal.png')}}" height="80" class="logo-dark mx-auto" alt="">
+                                    <img src="{{asset('backend/assets/images/logo-dulal.png')}}" height="80" class="logo-light mx-auto" alt="">
                                 </a>
                             </div>
                         </div>
