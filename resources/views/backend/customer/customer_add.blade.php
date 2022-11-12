@@ -11,7 +11,7 @@
             <div class="card-body">
 
                 <h4 class="card-title">Add Customer Page</h4><br><br>
-            <form method="post" action="" id="myForm" >
+            <form method="post" action="{{ route('customer.store')}}" id="myForm" enctype="multipart/form-data" >
                 @csrf
                 
           
