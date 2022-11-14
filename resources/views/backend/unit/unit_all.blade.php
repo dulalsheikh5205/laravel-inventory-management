@@ -17,7 +17,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                <a href="{{route('supplier.add')}}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;">Add Unit</a> <br><br>
+                <a href="{{route('unit.add')}}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;">Add Unit</a> <br><br>
 
                         <h4 class="card-title">Unit All Data</h4>
 
@@ -25,9 +25,9 @@
 
                             <thead>
                                 <tr>
-                                    <th>SI</th>
+                                    <th width="5%">SI</th>
                                     <th>Name</th>
-                                    <th>Action</th>
+                                    <th width="20%">Action</th>
                                 </tr>
                             </thead>
 
