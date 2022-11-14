@@ -82,6 +82,14 @@
             <a href="{{route('register')}}" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account</a>
         </div>
     </div>
+
+    <div class="mt-3">
+        <p>
+            Login Details <br>
+            UserName: dulal &nbsp;&nbsp; Password: 9876543210 <br>
+            
+        </p>
+    </div>
 </form>
                         </div>
                         <!-- end -->
