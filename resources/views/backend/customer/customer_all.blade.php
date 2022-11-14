@@ -41,8 +41,8 @@
                                 <tr>
                                     <td>{{$key+1}}</td>
                                     <td>{{$item->name}}</td>
-                                    <!-- <td><img src="{{ asset($item->customer_image) }}" style="width:60px;height;50px;"></td> -->
-                                    <td><img src="{{asset('storage/upload/customerStorage/'.$item->customer_image)}}"  width="70px" height="70px"></td>
+                                     <!-- <td><img src="{{ asset($item->customer_image) }}" style="width:60px;height;50px;"></td> -->   <!-- show Loop image BY Kazi Ariyan from database by maping -->
+                                    <td><img src="{{asset('storage/upload/customerStorage/'.$item->customer_image)}}"  width="70px" height="70px"></td>   <!-- show Loop image BY Aman Sir from database by maping--> 
                                     <td>{{$item->mobile_no}}</td>
                                     <td>{{$item->email}}</td>
                                     <td>{{$item->address}}</td>
