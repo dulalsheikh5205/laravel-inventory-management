@@ -61,7 +61,7 @@ class SupplierController extends Controller
         ]);
 
         $notification = array(
-            'message'=>'Supplier Added inserted successfully',
+            'message'=>'Supplier updated successfully',
             'alert-type'=>'success',
         );
 
