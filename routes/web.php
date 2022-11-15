@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Pos\SupplierController;
 use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\UnitController;
+use App\Http\Controllers\Pos\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,6 +71,19 @@ Route::controller(CustomerController::class)->group(function(){
 // Unit All Route
 Route::controller(UnitController::class)->group(function(){
     Route::get('/unit/all','UnitAll')->name('unit.all');
+    Route::get('/unit/add','UnitAdd')->name('unit.add');
+    Route::post('/unit/store','UnitStore')->name('unit.store');
+    Route::get('/unit/edit/{id}','UnitEdit')->name('unit.edit');
+    Route::post('/unit/update','UnitUpdate')->name('unit.update');
+    Route::get('/unit/delete/{id}','UnitDelete')->name('unit.delete');
+    
+});
+
+
+
+// Category All Route
+Route::controller(CategoryController::class)->group(function(){
+    Route::get('/category/all','CategoryAll')->name('category.all');
     Route::get('/unit/add','UnitAdd')->name('unit.add');
     Route::post('/unit/store','UnitStore')->name('unit.store');
     Route::get('/unit/edit/{id}','UnitEdit')->name('unit.edit');
