@@ -18,4 +18,15 @@ class ProductController extends Controller
         return view('backend.product.product_all',compact('products'));
 
     } // End Method
+
+
+    public function ProductAdd()
+    {
+        $supplier = Supplier::all();
+        $unit = Unit::all();
+        $category = Category::all();
+
+        return view('backend.product.product_add',compact('supplier','unit','category'));
+
+    }// End Method
 }
