@@ -11,7 +11,7 @@
             <div class="card-body">
 
                 <h4 class="card-title">Add Product Page</h4><br><br>
-            <form method="post" action="{{route('category.store')}}" id="myForm" >
+            <form method="post" action="{{route('product.store')}}" id="myForm" >
                 @csrf
                 
           
@@ -29,7 +29,7 @@
                         <select name="supplier_id" class="form-select" aria-label="Default select example">
                             <option selected="">Open this select menu</option>
                             @foreach($supplier as $supp)
-                            <option value="$supp->id">{{ $supp->name}}</option>
+                            <option value="{{ $supp->id }}">{{ $supp->name}}</option>
                             @endforeach
                             </select>
                     </div>
@@ -43,7 +43,7 @@
                         <select name="unit_id" class="form-select" aria-label="Default select example">
                             <option selected="">Open this select menu</option>
                             @foreach($unit as $uni)
-                            <option value="$uni->id">{{ $uni->name}}</option>
+                            <option value="{{ $uni->id }}">{{ $uni->name}}</option>
                             @endforeach
                             </select>
                     </div>
@@ -57,7 +57,7 @@
                         <select name="category_id" class="form-select" aria-label="Default select example">
                             <option selected="">Open this select menu</option>
                             @foreach($category as $cat)
-                            <option value="$cat->id">{{ $cat->name}}</option>
+                            <option value="{{ $cat->id }}">{{ $cat->name}}</option>
                             @endforeach
                             </select>
                     </div>
