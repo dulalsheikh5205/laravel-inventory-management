@@ -47,14 +47,14 @@
 
                                     <td>
                                     @if($item->status == 1)
-                                    <a href="{{url('/category/status/0')}}/{{$item->id}}">
+                                    <a href="{{url('/product/status/0')}}/{{$item->id}}">
                                         <button type="button" class="btn btn-primary">Active</button>
                                         <!-- <div class="col-xl-3 col-lg-4 col-sm-6"><i class="mdi mdi-account-check" style="font-size:30px;" ></i><span></span></div> -->
                                        
                                     </a>
                                     
                                     @elseif($item->status == 0)
-                                    <a href="{{url('/category/status/1')}}/{{$item->id}}">
+                                    <a href="{{url('/product/status/1')}}/{{$item->id}}">
                                         <button type="button" class="btn btn-warning">Deactive</button>
                                         <!-- <div class="col-xl-3 col-lg-4 col-sm-6"><i class="mdi mdi-account-cancel" style="font-size:30px; color:red;" ></i><span></span></div> -->
 
@@ -65,9 +65,9 @@
 
 
                                     <td>
-                                        <a href="{{ route('category.edit',$item->id)}}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('product.edit',$item->id)}}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
 
-                                        <a href="{{ route('category.delete',$item->id)}}" class="btn btn-danger sm" title="Delete Data" id="delete"><i class="fas fa-trash-alt"></i></a>
+                                        <a href="{{ route('product.delete',$item->id)}}" class="btn btn-danger sm" title="Delete Data" id="delete"><i class="fas fa-trash-alt"></i></a>
 
                                     </td>
                                 </tr>
