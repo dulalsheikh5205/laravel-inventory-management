@@ -91,7 +91,7 @@
 </li>
 
 
-<li>
+{{-- <li>
     <a href="javascript: void(0);" class="has-arrow waves-effect">
         <i class="ri-mail-send-line"></i>
         <span>Manage Purchase</span>
@@ -103,7 +103,7 @@
         <li><a href="javascript: void(0);">Approved Purchase</a></li>
         
     </ul>
-</li>
+</li> --}}
 
 <li>
     <a href="javascript: void(0);" class="has-arrow waves-effect">
