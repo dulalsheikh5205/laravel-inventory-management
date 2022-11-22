@@ -31,7 +31,7 @@
                             @foreach($supplier as $supp)
                             <option value="{{ $supp->id }}">{{ $supp->name}}</option>
                             @endforeach
-                            </select>
+                        </select>
                     </div>
                 </div>
                 <!-- end row -->
