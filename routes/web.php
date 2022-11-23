@@ -8,6 +8,7 @@ use App\Http\Controllers\Pos\UnitController;
 use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\ProductController;
 use App\Http\Controllers\Pos\PurchaseController;
+use App\Http\Controllers\Pos\DefaultController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -125,6 +126,15 @@ Route::controller(PurchaseController::class)->group(function(){
     Route::get('/product/status/{status}/{id}','status')->name('product.status'); 
     
 });
+
+
+// Default All Route
+Route::controller(DefaultController::class)->group(function(){
+    Route::get('/get.category','GetCategory')->name('get.category');
+
+   
+});
+
 
 
 

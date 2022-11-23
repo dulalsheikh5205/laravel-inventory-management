@@ -85,49 +85,22 @@
     </div>
 
     <script type="text/javascript">
-        $(document).ready(function() {
-            $('#myForm').validate({
-                rules: {
-                    name: {
-                        required: true,
-                    },
-                    supplier_id: {
-                        required: true,
-                    },
-                    unit_id: {
-                        required: true,
-                    },
-                    category_id: {
-                        required: true,
-                    },
+        $(function(){
+            $(document).on('change','#supplier_id',function(){
+                var supplier_id = $(this).val();
+                $.ajax({
+                  url: "{{ route('get.category') }}",
+                  type: "GET",
+                  data:{supplier_id:supplier_id},
+                  success:function(data){
+                    var html = '<option value="">Select Category</option>';
+                    $.each(data,function(key,v){
+                        html += '<option value=" '+v.category_id+' ">'+v.category.name+'</option>';
+                    });
+                    $('#category_id').html(html);
+                  }
 
-                },
-                messages: {
-                    name: {
-                        required: 'Please Enter Your Product name',
-                    },
-                    supplier_id: {
-                        required: 'Please Select One Supplier',
-                    },
-                    unit_id: {
-                        required: 'Please Select One Unit',
-                    },
-                    category_id: {
-                        required: 'Please Select One Category',
-                    },
-
-                },
-                errorElement: 'span',
-                errorPlacement: function(error, element) {
-                    error.addClass('invalid-feedback');
-                    element.closest('.form-group').append(error);
-                },
-                highlight: function(element, errorClass, validClass) {
-                    $(element).addClass('is-invalid');
-                },
-                unhighlight: function(element, errorClass, validClass) {
-                    $(element).removeClass('is-invalid');
-                },
+                })
             });
         });
     </script>
