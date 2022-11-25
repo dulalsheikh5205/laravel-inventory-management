@@ -69,7 +69,7 @@
                                 <div class="col-md-4">
                                     <div class="md-3">
                                         <label class="form-label" style="margin-top: 43px;"></label>
-                                        <input type="submit" class="btn btn-secondary btn-rounded waves-effect waves-light" value="Add More">
+                                        <i class="btn btn-secondary btn-rounded waves-effect waves-light  fas fa-plus-circle addeventmore"> Add More</i>
                                     </div>
                                 </div>
 
@@ -175,6 +175,49 @@
     
         </tr>
 
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(document).on("click",".addeventmore",function(){
+                var date = $(#date).val();
+                var purchase_no = $(#purchase_no).val();
+                var supplier_id = $(#supplier_id).val();
+                var category_id = $(#category_id).val();
+                var category_name = $(#category_id).find('option:selected').text();
+                var product_id = $(#product_id).val();
+                var product_name = $(#product_id).find('option:selected').text();
+                
+                if(date == ''){
+                    $.notify("Date is Required", {globalPosition: 'top right', className:'error' });
+                    return false;
+                }
+
+                if(purchase_no == ''){
+                    $.notify("Purchase No  is Required", {globalPosition: 'top right', className:'error' });
+                    return false;
+                }
+
+                if(supplier_id == ''){
+                    $.notify("Supplier  is Required", {globalPosition: 'top right', className:'error' });
+                    return false;
+                }
+
+                if(category_id == ''){
+                    $.notify("Category  is Required", {globalPosition: 'top right', className:'error' });
+                    return false;
+                }
+
+                if(Product_id == ''){
+                    $.notify("Product Field is Required", {globalPosition: 'top right', className:'error' });
+                    return false;
+                }
+
+                var source = $("document-template").html();
+                var template = Handlebars.complie(source);
+
+            });
+        });
     </script>
 
 
