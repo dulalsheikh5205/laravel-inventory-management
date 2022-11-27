@@ -27,7 +27,6 @@
                             <thead>
                                 <tr>
                                     <th >SI</th>
-                                    <th>Name</th>
                                     <th>Purchase No</th>
                                     <th>Date</th>
                                     <th>Supplier</th>

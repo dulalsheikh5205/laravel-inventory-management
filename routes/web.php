@@ -118,7 +118,7 @@ Route::controller(ProductController::class)->group(function(){
 Route::controller(PurchaseController::class)->group(function(){
     Route::get('/purchase/all','PurchaseAll')->name('purchase.all');
     Route::get('/purchase/add','PurchaseAdd')->name('purchase.add');
-    Route::post('/product/store','ProductStore')->name('product.store');
+    Route::post('/purchase/store','PurchaseStore')->name('purchase.store');
     Route::get('/product/edit/{id}','ProductEdit')->name('product.edit');
     Route::post('/product/update','ProductUpdate')->name('product.update');
     Route::get('/product/delete/{id}','ProductDelete')->name('product.delete');
@@ -132,6 +132,7 @@ Route::controller(PurchaseController::class)->group(function(){
 Route::controller(DefaultController::class)->group(function(){
     Route::get('/get.category','GetCategory')->name('get.category');
     Route::get('/get.product','GetProduct')->name('get.product');
+
 
    
 });

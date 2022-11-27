@@ -81,7 +81,7 @@
 {{-- -- -------------------------------------------------------- -- --}}
                         <div class="card-body">
 
-                            <form action="" method="post">
+                            <form action="{{ route('purchase.store') }}" method="post">
                                 @csrf
 
                                 <table class="table-sm table-bordered" width="100%" style="border-color:#ddd;">
