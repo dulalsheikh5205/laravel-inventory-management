@@ -121,7 +121,8 @@ Route::controller(PurchaseController::class)->group(function(){
     Route::post('/purchase/store','PurchaseStore')->name('purchase.store');
     Route::get('/purchase/delete/{id}','PurchaseDelete')->name('purchase.delete');
     Route::get('/purchase/pending','PurchasePending')->name('purchase.pending');
-    Route::post('/product/update','ProductUpdate')->name('product.update');
+    Route::get('/purchase/approve/{id}','PurchaseApprove')->name('purchase.approve');
+    
 
     Route::get('/product/status/{status}/{id}','status')->name('product.status'); 
     
