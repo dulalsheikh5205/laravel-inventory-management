@@ -121,15 +121,14 @@
 <li>
     <a href="javascript: void(0);" class="has-arrow waves-effect">
         <i class="ri-mail-send-line"></i>
-        <span>Manage Invoice</span>
+        <span>Manage Report</span>
     </a>
-    <ul class="sub-menu" aria-expanded="false">
-        <li><a href="{{route('product.all')}}">All Invoice</a></li>
-        <li><a href="javascript: void(0);">Add Invoice</a></li>
-        <li><a href="javascript: void(0);">Pending Invoice</a></li>
-        <li><a href="javascript: void(0);">Approved Invoice</a></li>
-        
-    </ul>
+    
+    <a href="javascript: void(0);" class="has-arrow waves-effect">
+        <i class="ri-mail-send-line"></i>
+        <span>Manage Stock</span>
+    </a>
+    
 </li>
 
 
