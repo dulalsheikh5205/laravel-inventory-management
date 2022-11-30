@@ -17,7 +17,7 @@
                                 <div class="col-md-1">
                                     <div class="md-3">
                                         <label class="form-label">Inv No</label>
-                                        <input class="form-control example-date-input" type="text" name="invoice_no"
+                                        <input class="form-control example-date-input" type="text" value="{{ $invoice_no }}" name="invoice_no"
                                             id="invoice_no" readonly style="background-color:#ddd;">
                                     </div>
                                 </div>
@@ -25,7 +25,7 @@
                                 <div class="col-md-2">
                                     <div class="md-3">
                                         <label class="form-label">Date</label>
-                                        <input class="form-control example-date-input" type="date" name="date"
+                                        <input class="form-control example-date-input" value="{{ $date }}" type="date" name="date"
                                             id="date">
                                     </div>
                                 </div>
@@ -278,6 +278,23 @@
               }
 
             })
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(function(){
+        $(document).on('change','#product_id',function(){
+            var product_id = $(this).val();
+            $.ajax({
+              url: "{{ route('check-product-stock') }}",
+              type: "GET",
+              data:{product_id:product_id},
+              success:function(data){
+                $("#current_stock_qty").val(data);
+              }
+
+            });
         });
     });
 </script>
