@@ -5,10 +5,14 @@ namespace App\Http\Controllers\Pos;
 use App\Models\Unit;
 use App\Models\Invoice;
 use App\Models\Category;
+use App\Models\Customer;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\Customer;
+use App\Models\InvoiceDetail;
+use Illuminate\Support\Facades\Auth;
 
 class InvoiceController extends Controller
 {
@@ -62,7 +66,45 @@ class InvoiceController extends Controller
 
             } else{
 
+                $invoice = new Invoice();
+                $invoice->invoice_no = $request->invoice_no;
+                $invoice->date = date('Y-m-d',strtotime($request->date));
+                $invoice->description = $request->description;
+                $invoice->status = '0';
+                $invoice->created_by = Auth::user()->id;
                 
+                DB::transation(function() use($request,$invoice){
+
+                    if($invoice->save()){
+                        $count_category = count($request->category_id);
+                        for($i=0; $i < $count_category; $i++){
+                            $invoice_details = new InvoiceDetail();
+                            $invoice_details->date = date('Y-m-d',strtotime($request->date));
+                            $invoice_details->invoice_id = $invoice->id;
+                            $invoice_details->category_id = $request->category_id[$i];
+                            $invoice_details->product_id = $request->product_id[$i];
+                            $invoice_details->selling_qty = $request->selling_qty[$i];
+                            $invoice_details->unit_price = $request->unit_price[$i];
+                            $invoice_details->selling_price = $request->selling_price[$i];
+                            $invoice_details->status = '1';
+                            $invoice_details->save();
+                        }
+
+                        if($request->customer_id == '0'){
+
+                            $customer = new Customer();
+                            $customer->name = $request->name;
+                            $customer->mobile_no = $request->mobile_no;
+                            $customer->email = $request->email;
+                            $customer->save();
+                            $customer_id = $customer->id;
+                        } else{
+
+                            $customer_id = $request->customer_id;
+                        }
+
+                    }
+                });
             }
         }
     } // End Method
