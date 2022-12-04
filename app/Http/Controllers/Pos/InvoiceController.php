@@ -4,14 +4,16 @@ namespace App\Http\Controllers\Pos;
 
 use App\Models\Unit;
 use App\Models\Invoice;
+use App\Models\Payment;
 use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
+use App\Models\InvoiceDetail;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\InvoiceDetail;
+use App\Models\PaymentDetail;
 use Illuminate\Support\Facades\Auth;
 
 class InvoiceController extends Controller
@@ -73,7 +75,7 @@ class InvoiceController extends Controller
                 $invoice->status = '0';
                 $invoice->created_by = Auth::user()->id;
                 
-                DB::transation(function() use($request,$invoice){
+                DB::transaction(function() use($request,$invoice){
 
                     if($invoice->save()){
                         $count_category = count($request->category_id);
@@ -103,9 +105,48 @@ class InvoiceController extends Controller
                             $customer_id = $request->customer_id;
                         }
 
-                    }
-                });
-            }
+                        $payment = new Payment();
+                        $payment_details = new PaymentDetail();
+
+                        $payment->invoice_id = $invoice->id;
+                        $payment->customer_id = $customer_id;
+                        $payment->paid_status = $request->paid_status;
+                        $payment->discount_amount = $request->discount_amount;
+                        $payment->total_amount = $request->estimated_amount; //
+                        
+                        if ($request->paid_status == 'full_paid') {
+                            $payment->paid_amount = $request->estimated_amount;
+                            $payment->due_amount = '0';
+                            $payment_details->current_paid_amount = $request->estimated_amount;
+
+                        } elseif ($request->paid_status == 'full_due') {
+                            $payment->paid_amount = '0';
+                            $payment->due_amount = $request->estimated_amount;
+                            $payment_details->current_paid_amount = '0';
+                        } elseif ($request->paid_status == 'partial_paid') {
+                            $payment->paid_amount = $request->paid_amount;
+                            $payment->due_amount = $request->estimated_amount - $request->paid_amount;
+                            $payment_details->current_paid_amount = $request->paid_amount;
+                        }
+                        $payment->save();
+
+                        $payment_details->invoice_id = $invoice->id;
+                        $payment_details->date = date('Y-m-d',strtotime($request->date));
+                        $payment_details->save();
+
+                    } // End if here
+            
+                }); // End DB::transaction() function here
+            
+            }   // end else 
         }
-    } // End Method
-}
+            
+                $notification = array(
+                'message' => 'Invoice Data Inserted Successfully', 
+                'alert-type' => 'success'
+            );
+            return redirect()->route('invoice.all')->with($notification); 
+
+        } // End Method here
+
+    } // End class here
